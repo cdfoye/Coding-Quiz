@@ -1,0 +1,53 @@
+.content {
+  text-align: center;
+  padding: 10%;
+}
+
+* {
+  font-family: sans-serif;
+}
+
+button {
+    background: rgb(80 1 96);
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    letter-spacing: 0.21px;
+    line-height: 16px;
+    max-width: 143px;
+    padding: 7px 10px;
+    text-align: center;
+    transition-duration: 0.15s;
+    transition-property: background-color;
+    transition-timing-function: linear;
+    margin-top: 0.6em;
+  }
+
+h1 {
+  border: 1px solid blue;
+  font-size: 2em;
+  text-align:center;
+  font-weight: bolder;
+}
+
+p {
+  border: 1px solid red;
+  text-align: center;
+  font-weight: bold;
+}
+
+.timer-count {
+  float: right;
+}
+
+@media screen and (min-width: 600px) {
+    /* For tablets: */
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  header {
+    padding: 10% 20%;
+  }
+}
