@@ -287,7 +287,7 @@ function quizFinish() {
             localStorage.setItem("highScores", newScore);
 
             // Travel to the highscores html page once submitted
-            window.location=("file:///C:/Users/cdfoy/Documents/CodingBootcamp2022/Coding-Quiz/highscores.html");
+            window.location=("https://cdfoye.github.io/Coding-Quiz/highscores.html");
         }
     });
 }

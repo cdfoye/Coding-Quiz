@@ -10,7 +10,7 @@ var listScores = document.querySelector("#list-scores");
 // when the go back button is clicked the page will change to the index.html containing the quiz
 backButton.addEventListener("click", function() {
 
-    window.location=("file:///C:/Users/cdfoy/Documents/CodingBootcamp2022/Coding-Quiz/index.html");
+    window.location=("https://cdfoye.github.io/Coding-Quiz/");
 
 });
 
