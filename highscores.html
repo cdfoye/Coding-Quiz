@@ -4,23 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- links CSS file -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <!-- Title -->
     <title>HighScores</title>
 </head>
 <body>
     <main>
+        <!-- Content div to wrap elements for styling and updating text -->
         <div class="content">
+            <!-- h1 tag for highscores header -->
             <h1 id="high-scores">HighScores</h1>
+            <!-- unordered list that will get updated by javascript to display ranked player initials and highscores -->
             <ul id="list-scores"></ul>
 
+            <!-- button div that is a wrapper for styling -->
             <div class="button-container">
+                <!-- button to go back to the quiz and play again -->
                 <button class="back-button">Go Back</button>
+                <!-- button to clear all of the highscores on the page and in localStorage -->
                 <button class="clear-button">Clear Highscores</button> 
             </div>
 
         </div>
     </main>
     
+    <!-- Link to the highscores javascript file -->
     <script src="./assets/js/highscores.js"></script>
 </body>
 </html>

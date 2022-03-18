@@ -4,28 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- links CSS file -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <!-- title -->
     <title>Code Quiz</title>
 </head>
 <body>
+    <!-- timer div that will initially display a time of 0 seconds on first page load-->
     <div class="timer-count">Time: 0 </div>
 
+    <!-- link to the highscores page -->
     <div id="highscore-link">
         <a href="./highscores.html">View Highscores</a> 
     </div>
 
     <main>
+        <!-- content div to wrap all elements -->
         <div class="content">
+            <!-- h1 tag that will initially display the following, but be updated by javaScript -->
             <h1 id="code-quiz">Coding Quiz Challenge</h1>
+            <!-- p tag that will initially display the following, but be updated by javaScript -->
             <p id="rules">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <!-- buttons wrapper for styling -->
             <div class="buttons">
+                <!-- start button to start the quiz -->
                 <button class="start-button">Start</button>
             </div>
         </div>
 
+        <!-- grade div that will display whether the player gets a question correct or not -->
         <div class="grade"></div>
 
     </main>
+    <!-- links javascript file -->
     <script src="assets/js/script.js"></script>
 </body>
 </html>
