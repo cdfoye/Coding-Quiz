@@ -1,53 +1,247 @@
+/* Set padding and bold text properties for the main content */
 .content {
-  text-align: center;
-  padding: 10%;
-}
-
-* {
-  font-family: sans-serif;
-}
-
-button {
-    background: rgb(80 1 96);
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
-    font-size: 15px;
-    letter-spacing: 0.21px;
-    line-height: 16px;
-    max-width: 143px;
-    padding: 7px 10px;
-    text-align: center;
-    transition-duration: 0.15s;
-    transition-property: background-color;
-    transition-timing-function: linear;
-    margin-top: 0.6em;
-  }
-
-h1 {
-  border: 1px solid blue;
-  font-size: 2em;
-  text-align:center;
+  padding: 10% 10% 0% 10%;
   font-weight: bolder;
 }
 
-p {
-  border: 1px solid red;
+/* Sets font family for all elements and removes underlines from any hyperlink */
+* {
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+/* Sets the div buttons container to have a centered text-align */
+.buttons {
+  text-align: center;
+}
+
+/* Properties for button elements */
+button {
+  background: rgb(80 1 96);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  letter-spacing: 0.21px;
+  line-height: 16px;
+  max-width: 143px;
+  padding: 7px 10px;
+  text-align: center;
+  transition-duration: 0.15s;
+  transition-property: background-color;
+  transition-timing-function: linear;
+  margin-top: 0.6em;
+}
+
+/* Changes the cursor to a pointer when hovering over a button */
+button:hover {
+  cursor: pointer;
+}
+
+/* Sets font/text elements for h1 properties */
+#code-quiz {
+  font-size: 2em;
+  text-align: center;
+  font-weight: bolder;
+}
+
+/* Sets font/text properties for paragraphs */
+#rules {
   text-align: center;
   font-weight: bold;
 }
 
+/* Places the timer in the top right corner */
 .timer-count {
   float: right;
 }
 
-@media screen and (min-width: 600px) {
-    /* For tablets: */
+/* Sets font size and removes the bullet points from the unordered list */
+.answer-choices {
+  list-style: none;
+  font-size: 0.8em;
+}
+
+/* Sets the properties for the answer choice buttons */
+.choice-list {
+  background: rgb(80 1 96);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  letter-spacing: 0.21px;
+  line-height: 16px;
+  max-width: 143px;
+  padding: 7px 3px;
+  text-align: left;
+  transition-duration: 0.15s;
+  transition-property: background-color;
+  transition-timing-function: linear;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Sets the color and positioning for the "correct" or "wrong" pop-ups */
+.grade {
+  color: gray;
+  text-align: center;
+  padding: 1%;
+  font-style: italic;
+  margin: 3% 10% 0% 10%;
+}
+
+/* properties for "all done!" text at the end of the quiz */
+#all-done {
+  font-size: 1.3em;
+  text-align: left;
+  font-weight: bold;
+}
+
+/* text properties for final score */
+#final-score {
+  font-weight: normal;
+}
+
+/* text properties for initials label */
+#initials-label {
+  font-weight: normal;
+  margin-top: 5px;
+}
+
+/* Adds margin to the top of the initials input text box */
+#initials-input {
+  margin-top: 21px;
+  margin-left: 4px;
+}
+
+/* positioning for submit button on the all done page */
+#initials-submit {
+  margin: 5px 0px 0px 7px;
+}
+
+/* Higscore HTML page elements */
+
+/* Sets h1 high-scores text positioning and sizing */
+#high-scores {
+  text-align: left;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+/* Sets the ul list-scores text positioning, background color, and padding */
+#list-scores {
+  list-style: none;
+  text-align: left;
+  padding-left: 0px;
+  background-color: rgb(248, 215, 248);
+}
+
+/* list item font size and padding */
+#ranks {
+  padding: 2px;
+  font-size: 14px;
+}
+
+/* "go back" button border radius and padding */
+.back-button {
+  border-radius: 5px;
+  padding: 4px 6px;
+}
+
+/* "clear highscores" button border radius, padding, and add spacing between buttons*/
+.clear-button {
+  margin-left: 5px;
+  border-radius: 5px;
+  padding: 4px 6px;
+}
+
+/* Media queries for tablet and desktop sizing */
+@media screen and (min-width: 601px) {
+  /* For tablets: */
+  .content {
+    text-align: center;
+    font-size: 23px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+  .answer-choices {
+    margin-top: 7%;
+  }
+
+  .choice-list {
+    font-size: 18px;
+    padding: 6px 4px;
+    line-height: 20px;
+  }
+
+  #final-score {
+    text-align: left;
+  }
+
+  #initials-label {
+    float: left;
+    margin-top: 20px;
+  }
+
+  #initials-input {
+    float: left;
+    margin-top: 25px;
+    margin-left: 14px;
+  }
+
+  #initials-submit {
+    float: left;
+    margin-top: 14px;
+  }
+
+  .grade {
+    margin: 10% 10% 0% 10%;
+  }
+
+  .button-container {
+    text-align: left;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   /* For desktop: */
-  header {
-    padding: 10% 20%;
+  .content {
+    font-size: 20px;
   }
+
+  button {
+    font-size: 16px;
+    padding: 7px 14px;
+  }
+
+  .answer-choices {
+    margin-top: 5%;
+    margin-left: 8%;
+  }
+
+  .choice-list {
+    font-size: 14px;
+  }
+
+  #initials-input {
+    margin-top: 22px;
+    margin-left: 10px;
+  }
+
+  #initials-submit {
+    margin-top: 15px;
+  }
+
+  .grade {
+    margin: 6% 10% 0% 10%;
+  }
+
+  #list-scores{
+    margin-right: 40%;
+  }
+  
 }

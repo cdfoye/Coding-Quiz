@@ -8,21 +8,23 @@
     <title>Code Quiz</title>
 </head>
 <body>
-    <section class="timer-count">
-        Time: 0 
-        <!-- <div class="timer-text">Time:</div>
-        <div class="timer-count">0</div> -->
-    </section>
+    <div class="timer-count">Time: 0 </div>
+
+    <div id="highscore-link">
+        <a href="./highscores.html">View Highscores</a> 
+    </div>
 
     <main>
         <div class="content">
-            <h1>Coding Quiz Challenge</h1>
-            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-            <button class="start-button">Start</button>
+            <h1 id="code-quiz">Coding Quiz Challenge</h1>
+            <p id="rules">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <div class="buttons">
+                <button class="start-button">Start</button>
+            </div>
         </div>
 
         <div class="grade"></div>
-        
+
     </main>
     <script src="assets/js/script.js"></script>
 </body>

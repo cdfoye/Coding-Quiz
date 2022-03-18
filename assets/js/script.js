@@ -9,7 +9,7 @@ var gradeEl = document.querySelector(".grade");
 
 // Create unordered list and list items for the answer choices
 var unorderedList = document.createElement("ul");
-// var listItems = document.createElement("li");    
+unorderedList.className = "answer-choices";    
 
 // Global variable for time left
 var secondsLeft = 0;
@@ -22,7 +22,7 @@ var index = 0;
 // Penalty of 10s for incorrect answer
 var penalty = 10;
 // user score
-var score = 0;
+var score = 10;
 
 // Array containing the questions, question choices, and answers
 var questionArray = [
@@ -45,6 +45,36 @@ var questionArray = [
             "4. Parenthesis"
         ],
         correctAnswer: "4. Parenthesis"
+    },
+    {
+        question: "Arrays in JavaScript can be used to store _____.",
+        answers: [
+            "1. Numbers and strings",
+            "2. Other arrays",
+            "3. Booleans",
+            "4. All of the above"
+        ],
+        correctAnswer: "4. All of the above"
+    },
+    {
+        question: "String values must be enclosed within _____ when being assigned to variables.",
+        answers: [
+            "1. Commas",
+            "2. Curly brackets",
+            "3. Quotes",
+            "4. Parenthesis"
+        ],
+        correctAnswer: "3. Quotes"
+    },
+    {
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        answers: [
+            "1. JavaScript",
+            "2. Terminal / Bash",
+            "3. For Loops",
+            "4. console.log"
+        ],
+        correctAnswer: "4. console.log"
     }
 ];
 
@@ -104,10 +134,11 @@ function showQuestions() {
         contentEl.textContent = showQuestion;
     }
 
-    // for each of the answer choices per question, each choice will be displayed as a list item and appened to the unordered list
+    // for each of the answer choices per question, each choice will be displayed as a list of button and appened to the unordered list
     // If a user clicks on any list item then that will trigger the checkCorrect function
     showChoices.forEach(function (listFunction) {
-        var listItems = document.createElement("li");
+        var listItems = document.createElement("button");
+        listItems.setAttribute("class", "choice-list");
         listItems.textContent = listFunction;
         contentEl.appendChild(unorderedList);
         unorderedList.appendChild(listItems);
@@ -121,29 +152,35 @@ function checkCorrect(event) {
     var x = event.target;
 
     // checks the user clicks on a list item
-    if (x.matches("li")) {
+    if (x.matches("button")) {
 
         // Checks user selected correct answer. If so "Correct!" is displayed and 10 points are added to their score
         if (x.textContent == questionArray[index].correctAnswer) {
             gradeEl.textContent = "Correct!";
+            gradeEl.style.borderTop = "1px solid gray";
             score += 10;
 
             // If the user selects the wrong answer, then 10 seconds is deducted from their time
         } else {
             gradeEl.textContent = "Wrong!";
+            gradeEl.style.borderTop = "1px solid gray";
             secondsLeft = secondsLeft - penalty;
             score = score - 10;
         }
     }
 
-    // Clear text after 2 seconds
+    console.log(score);
+
+    // Clear text after 1 second
     setTimeout(function() {
         if (gradeEl.textContent == "Correct!"){
             gradeEl.textContent = "";
+            gradeEl.style.borderTop = "none";
         }else {
             gradeEl.textContent = "";
+            gradeEl.style.borderTop = "none";
         }
-    }, 2000);
+    },  1000);
 
     // increment index for new question
     index++;
@@ -165,6 +202,16 @@ function quizFinish() {
     contentEl.innerHTML = "";
     timerEl.innerHTML = "";
 
+    // Set score to 0 if the score is negative
+    if (score < 0) {
+        score = 0;
+    }
+    // Set score to 50 if the score is greater
+    if (score > 50) {
+        score = 50;
+    }
+
+
     // Create new h1 tag with class
     var newH1 = document.createElement("h1");
     newH1.setAttribute("id", "all-done");
@@ -185,7 +232,7 @@ function quizFinish() {
     // new label for enter initials
     var getInitials = document.createElement("label");
     getInitials.setAttribute("type", "text");
-    getInitials.setAttribute("id", "initals-label");
+    getInitials.setAttribute("id", "initials-label");
     getInitials.textContent = "Enter your initials: ";
 
     // User input for initals
@@ -206,25 +253,42 @@ function quizFinish() {
     contentEl.appendChild(userSubmit);
 
     // event listener once user submits and initials and score is stored
-    userSubmit.addEventListener("click", function(event) {
-        event.preventDefault();
+    userSubmit.addEventListener("click", function() {
+        var initials = userInput.value;
 
         // Checks valid user input
-        if (userInput.value === "") {
-            displayMessage("Error", "Initials cannot be blank");
+        if (initials === "") {
+            alert("Error. Initials cannot be blank");
         }else {
-            var initials = userInput.value;
-
-            var userInfo = {
+            // Places the users initials and score into a new variable
+            var userScore = {
                 initials: initials,
                 score: score,
-            };
+            }
+            // Creates a new highScores variable that will get any highScores saved to local storage
+            var highScores = localStorage.getItem("highScores");
+            // if highScores does not have a value then the variable will be set to equal an empty array
+            if (highScores === null) {
+                highScores = [];
+            // otherwise, Parse a string (written in JSON format), in this case previous highScores, and return a JavaScript object equal to current highScores 
+            }else {
+                highScores = JSON.parse(highScores);
+            }
 
-            localStorage.setItem("highscores", JSON.stringify(userInfo));
+            // add the user's score to the end of the highScores array
+            highScores.push(userScore);
+            // Sort the scores by the highest scores showing first
+            highScores.sort(function(a,b) { return (b.score - a.score) });
 
-            // window.location.href=
+            // The JSON.stringify() method converts JavaScript objects into strings. highScores is converted to strings and set to equal newScore
+            var newScore = JSON.stringify(highScores);
+
+            // Update highScores in local storage to equal newScore
+            localStorage.setItem("highScores", newScore);
+
+            // Travel to the highscores html page once submitted
+            window.location=("file:///C:/Users/cdfoy/Documents/CodingBootcamp2022/Coding-Quiz/highscores.html");
         }
-
     });
 }
 
