@@ -28,4 +28,4 @@ The following is a gif of the quiz's appearance and functionality:
 
 <br />
 
-![Coding Quiz Challenge](screenshot.PNG)
+![Coding Quiz Challenge](Mockup.gif)
