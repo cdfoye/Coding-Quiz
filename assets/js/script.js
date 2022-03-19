@@ -287,7 +287,7 @@ function quizFinish() {
             localStorage.setItem("highScores", newScore);
 
             // Travel to the highscores html page once submitted
-            window.location.replace("https://cdfoye.github.io/Coding-Quiz/highscores.html");
+            window.location.replace("highscores.html");
         }
     });
 }
