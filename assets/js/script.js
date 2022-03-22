@@ -22,7 +22,7 @@ var index = 0;
 // Penalty of 10s for incorrect answer
 var penalty = 10;
 // user score
-var score = 10;
+var score = 0;
 
 // Array containing the questions, question choices, and answers
 var questionArray = [
